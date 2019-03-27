@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
+from results import views
 
 router = DefaultRouter()
+router.register(r'results', views.ResultsViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'^v0.1/', include(router.urls)),
+    url(r'^v0.1/', include(router.urls)),
 ]
